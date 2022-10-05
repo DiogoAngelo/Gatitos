@@ -4,9 +4,10 @@
     <div class="form-group mb-4">
       <input [(ngModel)]="user" name="user" class="form-control" type="text" placeholder="Usuário" required>
     </div>
-    <div class="form-group-mb-4">
+    <div class="form-group mb-4">
       <input [(ngModel)]="password" name="password" class="form-control" type="password" placeholder="Senha" required>
     </div>
-    <button class="btn btn-primary my-4 w-100">Entrar</button>
+    <button class="btn btn-primary w-100">Entrar</button>
   </form>
+  <p>Ainda não é um usuário? <a routerLink="new-user">Cadastre-se</a></p>
 </div>
