@@ -3,17 +3,21 @@
   <form [formGroup]="form" class="my-4">
     <div class="form-group mb-4">
       <input  formControlName="nome" type="text" class="form-control" placeholder="Nome" >
+      <base-form-validators [control]="form.controls.nome" ></base-form-validators>
     </div>
     <div class="form-group mb-4">
       <input formControlName="email"  type="email" class="form-control" placeholder="email" autocomplete="" >
+      <base-form-validators [control]="form.controls.email" ></base-form-validators>
     </div>
     <div class="form-group mb-4">
       <input formControlName="password" type="password" class="form-control" placeholder="Senha">
+      <base-form-validators [control]="form.controls.password" ></base-form-validators>
     </div>
     <div class="form-group mb-4">
       <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirme sua senha">
+      <base-form-validators [control]="form.controls.confirmPassword" ></base-form-validators>
     </div>
-    <button (click)="submit()" class="btn btn-primary w-100">Submeter</button>
+    <button (click)="submit()" class="btn btn-primary w-100" [disabled]="form.invalid" >Submeter</button>
   </form>
   <span>Já é um usuário? <a routerLink="/" >Faça login</a> </span>
 </div>

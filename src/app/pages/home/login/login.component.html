@@ -2,12 +2,13 @@
   <h4>Login</h4>
   <form #form="ngForm" class="my-4" (ngSubmit)="submit()" >
     <div class="form-group mb-4">
-      <input [(ngModel)]="user" name="user" class="form-control" type="text" placeholder="Usuário" required>
+      <input [(ngModel)]="user" name="user" type="text" placeholder="Usuário"  class="form-control">
+      <p *ngIf="form.controls.user.errors?.required" >Texto</p>
     </div>
     <div class="form-group mb-4">
-      <input [(ngModel)]="password" name="password" class="form-control" type="password" placeholder="Senha" required>
+      <input [(ngModel)]="password" name="password" class="form-control" type="password" placeholder="Senha">
     </div>
-    <button class="btn btn-primary w-100">Entrar</button>
+    <button class="btn btn-primary w-100" [disabled]="form.invalid" >Entrar</button>
   </form>
   <p>Ainda não é um usuário? <a routerLink="new-user">Cadastre-se</a></p>
 </div>
