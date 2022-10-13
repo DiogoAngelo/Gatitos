@@ -1,3 +1,13 @@
 <div *ngIf="control.errors && control.touched" >
+  <div *ngIf="control.errors?.required">
   <span  class="text-danger" *ngIf="control.errors?.required" >O preenchimento do campo é obrigatório</span>
+</div>
+<div *ngIf="control.errors?.lowercase">
+  <span class="text-danger">
+    Somente letras minúsculas
+  </span>
+</div>
+<div *ngIf="control.errors?.email" >
+  <span class="text-danger" >Formato de e-mail incorreto</span>
+</div>
 </div>
