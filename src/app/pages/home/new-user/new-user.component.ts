@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewUser } from 'src/app/shared/models/new-user.model';
 import { ExistentUserService } from 'src/app/shared/services/existent-user.service';
-import { NewUserService } from 'src/app/shared/services/new-user.service';
 import { lowerCaseValidator } from 'src/app/shared/validators/custom-validators/lower-case.validator';
 
 @Component({
@@ -15,7 +14,6 @@ export class NewUserComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private newUser: NewUserService,
     private existentUser: ExistentUserService
   ) {}
 
