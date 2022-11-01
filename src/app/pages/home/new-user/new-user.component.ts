@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NewUser } from 'src/app/shared/models/new-user.model';
 import { ExistentUserService } from 'src/app/shared/services/existent-user.service';
+import { NewUserService } from 'src/app/shared/services/new-user.service';
 import { lowerCaseValidator } from 'src/app/shared/validators/custom-validators/lower-case.validator';
 
 @Component({
@@ -14,23 +16,30 @@ export class NewUserComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private existentUser: ExistentUserService
+    private existentUser: ExistentUserService,
+    private newUserService: NewUserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       fullName: ['', [Validators.required]],
-      userName: [
-        '',
-        [lowerCaseValidator, Validators.required],
-        [this.existentUser.userAlreadyExists()],
-      ],
+      userName: ['', [lowerCaseValidator, Validators.required]],
       password: ['', [Validators.required, Validators.minLength(4)]],
     });
   }
 
   public submit(): void {
-    console.log(this.form.value);
+    if (this.form.valid) {
+      this.newUserService.register(this.form.value).subscribe(
+        () => {
+          this.router.navigate(['']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }

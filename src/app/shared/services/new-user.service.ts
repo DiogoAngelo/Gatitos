@@ -9,7 +9,7 @@ import { NewUser } from '../models/new-user.model';
 export class NewUserService {
   constructor(private httClient: HttpClient) {}
 
-  public post(newUser: NewUser): Observable<any> {
+  public register(newUser: NewUser): Observable<any> {
     return this.httClient.post('http://localhost:3000/user/signup', newUser);
   }
 

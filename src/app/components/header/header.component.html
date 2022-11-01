@@ -1,0 +1,18 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-light bg-white px-5">
+    <h1 >GatitoBook</h1>
+    <div *ngIf="user | async as user" >
+      <div *ngIf="user.name" class="d-flex align-items-center">
+        <i class="fa fa-user-circle"></i>
+        <p class="ms-2 me-3 mb-0 text-decoration-none">{{user.name}}</p>
+        <a class="d-inline text-decoration-none pointer" role="button" (click)="logout()">logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <ng-template #login>
+    <span class="navbar-text">
+      <a [routerLink]="['']" >Login</a>
+    </span>
+  </ng-template>
+</header>
