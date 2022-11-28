@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -7,11 +7,8 @@ import { UserService } from 'src/app/shared/services/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private userService: UserService, private router: Router) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   public user = this.userService.returnUser();
 
