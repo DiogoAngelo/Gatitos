@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { LoginGuard } from './shared/guards/login.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
-    path: 'home',
+    path: 'login',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
+    canLoad: [LoginGuard],
   },
   {
     path: 'animals',
