@@ -1,7 +1,7 @@
 <p  *ngIf="!animals" class="text-center text-muted">Sorry, there are no animals to display</p>
 <div class="row py-5">
   <div  *ngFor="let animal of animals" class="col-4">
-    <a [routerLink]="['/animais', animal.id]" class="text-decoration-none"  >
+    <a [routerLink]="['/animals', animal.id]" class="text-decoration-none"  >
     <app-animal-card
 
     >
