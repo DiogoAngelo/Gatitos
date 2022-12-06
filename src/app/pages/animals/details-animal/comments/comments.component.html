@@ -1,0 +1,20 @@
+<div *ngIf="comments$ | async as comments" >
+  <ul class="list-unstyled comment-list">
+    <li *ngFor="let comment of comments" >
+      <p class="text-dark font-weight-bold mr-1">{{comment.userName}}</p>
+      <em>{{comment.date | date: "dd-MM-yyyy HH:mm"}}</em>
+      <p class="break-word mb-2">{{comment.text}}</p>
+    </li>
+  </ul>
+
+  <div class="mt-4">
+    <form [formGroup]="commentForm" (submit)="post()">
+      <div class="form-group">
+        <textarea class="form-control" formControlName="comment" ></textarea>
+        <div class="form-group-append">
+          <button  class="btn btn-primary pull-left" [disabled]="commentForm.invalid" >Post</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

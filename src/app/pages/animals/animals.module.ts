@@ -7,6 +7,8 @@ import { AnimalCardComponent } from './animal-card/animal-card.component';
 import { AnimalComponent } from './animal/animal.component';
 import { AnimalPhotosGridComponent } from './animal-photos-grid/animal-photos-grid.component';
 import { DetailsAnimalComponent } from './details-animal/details-animal.component';
+import { CommentsComponent } from './details-animal/comments/comments.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,14 @@ import { DetailsAnimalComponent } from './details-animal/details-animal.componen
     AnimalComponent,
     AnimalPhotosGridComponent,
     DetailsAnimalComponent,
+    CommentsComponent,
   ],
-  imports: [CommonModule, AnimalsRoutingModule, ComponentsModule],
+  imports: [
+    CommonModule,
+    AnimalsRoutingModule,
+    ComponentsModule,
+    ReactiveFormsModule,
+  ],
   exports: [
     AnimalsListComponent,
     AnimalCardComponent,
