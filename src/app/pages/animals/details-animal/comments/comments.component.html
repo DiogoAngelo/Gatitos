@@ -10,9 +10,9 @@
   <div class="mt-4">
     <form [formGroup]="commentForm" (submit)="post()">
       <div class="form-group">
-        <textarea class="form-control" formControlName="comment" ></textarea>
+        <textarea class="form-control mb-4" formControlName="comment"></textarea>
         <div class="form-group-append">
-          <button  class="btn btn-primary pull-left" [disabled]="commentForm.invalid" >Post</button>
+          <button  class="btn btn-primary w-100" [disabled]="commentForm.invalid" >Post</button>
         </div>
       </div>
     </form>

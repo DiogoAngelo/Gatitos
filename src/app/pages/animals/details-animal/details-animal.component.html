@@ -1,4 +1,4 @@
-<div *ngIf="animal$ | async as animal" class="bg-white border">
+<div *ngIf="animal$ | async as animal" class="bg-white w-50 mx-auto my-5">
   <div class="row">
     <div class="col-lg-8">
       <app-animal [url]="animal.url " [description]="animal.description" ></app-animal>
